@@ -1,0 +1,6 @@
+# Day 2: Basic input and output practice
+student_name = "Mohammed Ahad Rafiq"
+current_semester = 1  # Starting my BSCS journey
+
+print("Assalamu Alaikum! I am", student_name)
+print("I have successfully started my Semester", current_semester, "at Virtual University.")
