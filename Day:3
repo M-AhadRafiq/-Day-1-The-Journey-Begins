@@ -1,0 +1,3 @@
+name = input("Enter Name: ").strip().title()
+print(f"User: {name}")
+print(f"Status: Day 3 Completed")
