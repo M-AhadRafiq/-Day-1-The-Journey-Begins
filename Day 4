@@ -1,0 +1,6 @@
+# Day 4: Daily Target Tracker
+daily_targets = ["Code 1hr", "GitHub Update", "Read Docs"]
+
+print("--- Targets for Today ---")
+for task in daily_targets:
+    print(f"[-] {task}")
