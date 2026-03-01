@@ -1,0 +1,4 @@
+# Day 7: Professional greeting with input sanitization
+user_name = input("Enter your name: ").strip().title()
+print(f"Hello {user_name}, welcome to my Python journey!")
+
