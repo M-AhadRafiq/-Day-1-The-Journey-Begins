@@ -1,0 +1,2 @@
+library = [{"title": "The Hobbit", "author": "J.R.R. Tolkien"}, {"title": "Deep Work", "author": "Cal Newport"}]
+for book in library: print(f"Added to collection: {book['title']} by {book['author']}")
