@@ -1,0 +1,3 @@
+daily_steps = [4500, 8200, 3100, 9500]
+print(f"Total steps recorded: {sum(daily_steps)}")
+
