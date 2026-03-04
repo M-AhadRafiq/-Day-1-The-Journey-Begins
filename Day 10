@@ -1,0 +1,5 @@
+with open("server.log", "r") as f:
+    errors = [line.strip() for line in f if "ERROR" in line]
+
+print(f"Total Issues Found: {len(errors)}") if errors else print("System Healthy")
+
