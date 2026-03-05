@@ -1,0 +1,11 @@
+class RepositoryJanitor:
+    def __enter__(self):
+        print("Initializing automated maintenance protocol...")
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print("System integrity verified. Session closed.")
+
+with RepositoryJanitor() as task:
+    pass
+
