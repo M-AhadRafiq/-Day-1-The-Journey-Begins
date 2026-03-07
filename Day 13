@@ -1,0 +1,4 @@
+# Mapping user IDs to status labels
+user_status = {i: "Active" if i % 2 == 0 else "Idle" for i in range(1, 6)}
+print("User Logs:", user_status)
+
