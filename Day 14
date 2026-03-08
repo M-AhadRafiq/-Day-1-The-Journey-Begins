@@ -1,0 +1,4 @@
+usd_amount = 50
+pkr_rate = 278.5
+print(f"${usd_amount} is equal to {usd_amount * pkr_rate} PKR")
+
