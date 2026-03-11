@@ -1,0 +1,5 @@
+import requests
+
+response = requests.get("https://api.example.com/data").json()
+names = [item["name"] for item in response if item.get("active")]
+
