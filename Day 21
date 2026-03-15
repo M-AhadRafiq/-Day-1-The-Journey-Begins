@@ -1,0 +1,4 @@
+data = {"apple": 5, "banana": 2, "cherry": 10}
+# Creates a new dict with only items > 3, doubling their value
+processed = {k: v * 2 for k, v in data.items() if v > 3}
+
