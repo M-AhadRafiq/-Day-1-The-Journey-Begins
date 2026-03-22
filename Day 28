@@ -1,0 +1,3 @@
+cities = ["Karachi", "Lahore", "Peshawar", "Islamabad", "Quetta", "Multan", "Pindi", "Hyderabad"]
+psl_map = {city: f"{city} {'Kings' if city == 'Karachi' else 'United' if city == 'Islamabad' else 'Zalmi' if city == 'Peshawar' else 'Sultans' if city == 'Multan' else 'Qalandars' if city == 'Lahore' else 'Gladiators' if city == 'Quetta' else 'Kingsmen' if city == 'Hyderabad' else 'Rawalpindiz'}" for city in cities}
+
