@@ -1,0 +1,3 @@
+from collections import Counter
+top_three = Counter(["apple", "orange", "apple", "banana", "apple"]).most_common(3)
+
