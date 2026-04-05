@@ -1,0 +1,53 @@
+import random
+
+class Villager:
+    def __init__(self, name, occupation):
+        self.name = name
+        self.occupation = occupation
+        self.happiness = 100
+
+    def work(self):
+        print(f"{self.name} the {self.occupation} is working hard in the fields.")
+        self.happiness -= 5
+
+    def __str__(self):
+        return f"{self.name} ({self.occupation}) - Happiness: {self.happiness}"
+
+class Village:
+    def __init__(self, name):
+        self.name = name
+        self.population = []
+
+    def add_villager(self, villager):
+        self.population.append(villager)
+        print(f"{villager.name} has moved into {self.name}!")
+
+    def show_status(self):
+        print(f"\n--- Welcome to {self.name} ---")
+        print(f"Current Population: {len(self.population)}")
+        for person in self.population:
+            print(person)
+        print("-" * 25)
+
+# --- Let's run the simulation ---
+
+# 1. Create the village
+my_village = Village(name="Greenwood")
+
+# 2. Add some residents
+residents = [
+    Villager("Elias", "Blacksmith"),
+    Villager("Sarah", "Farmer"),
+    Villager("Luna", "Healer")
+]
+
+for r in residents:
+    my_village.add_villager(r)
+
+# 3. Simulate some activity
+print("\nA day passes in the village...")
+residents[1].work()  # Sarah goes to work
+
+# 4. Check the status
+my_village.show_status()
+
