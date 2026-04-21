@@ -1,0 +1,5 @@
+pakistan_info = {"Capital": "Islamabad", "Flower": "Jasmine", "Sport": "Field Hockey"}
+print("--- Quick Facts: Pakistan ---")
+for key, value in pakistan_info.items():
+    print(f"{key}: {value}")
+
