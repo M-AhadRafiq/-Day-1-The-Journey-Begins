@@ -1,0 +1,4 @@
+resources = {"Side A": 100, "Side B": 100}
+while all(r > 0 for r in resources.values()):
+    for side in resources: resources[side] -= 10  # Constant attrition
+
