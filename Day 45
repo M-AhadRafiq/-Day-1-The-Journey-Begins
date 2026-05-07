@@ -1,0 +1,7 @@
+import psutil, time
+
+# Ek line mein system ki "heartbeat" check karein
+while True:
+    print(f"Memory Pulse: [{'#' * int(psutil.virtual_memory().percent // 5):<20}] {psutil.virtual_memory().percent}%", end="\r")
+    time.sleep(1)
+
