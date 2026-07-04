@@ -1,0 +1,5 @@
+naam = input("Aapka naam kya hai? ")
+umar = int(input("Aapki umar kitni hai? "))
+print(f"Namaste, {naam}!")
+print(f"Aap {umar} saal ke hain.")
+print(f"10 saal baad aap {umar + 10} saal ke honge.")
