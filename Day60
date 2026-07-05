@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+    vector<string> goodDeeds;
+    int choice;
+    string deed;
+
+    do {
+        cout << "\n--- Good Deeds Tracker ---\n";
+        cout << "1. Add a good deed\n";
+        cout << "2. Show all good deeds\n";
+        cout << "3. Exit\n";
+        cout << "Choose an option: ";
+        cin >> choice;
+        cin.ignore(); // newline clear karne ke liye
+
+        if (choice == 1) {
+            cout << "Aapne aaj kya achha kaam kiya? ";
+            getline(cin, deed);
+            goodDeeds.push_back(deed);
+            cout << "Great! Deed add ho gaya.\n";
+        }
+        else if (choice == 2) {
+            if (goodDeeds.empty()) {
+                cout << "Abhi tak koi deed add nahi hui.\n";
+            } else {
+                cout << "\nAapke Good Deeds:\n";
+                for (int i = 0; i < goodDeeds.size(); i++) {
+                    cout << i + 1 << ". " << goodDeeds[i] << endl;
+                }
+            }
+        }
+        else if (choice != 3) {
+            cout << "Galat option, dobara try karein.\n";
+        }
+
+    } while (choice != 3);
+
+    cout << "Dhanyavaad! Aise hi achhe kaam karte rahiye.\n";
+    return 0;
+}
