@@ -1,0 +1,27 @@
+​#include <iostream>
+#include <conio.h>
+​using namespace std;
+​int main() {
+// 1. Do-While Loop
+int i = 1;
+do {
+cout << "Do-While Loop Step: " << i << endl;
+i++;
+} while (i <= 5);
+​cout << "\n--- For Loop aur Range ---" << endl;
+​// 2. For Loop (Range/Sequence handling)
+for (int x = 1; x <= 5; x++) {
+cout << "For Loop Step: " << x << endl;
+}
+​cout << "\n--- Kal Ka Code aur Greeting ---" << endl;
+​// 3. Kal ka code aur arrange/array display
+cout << "Hello! Kal aapne loops aur structure seekha tha." << endl;
+​int arr[] = {10, 20, 30, 40, 50};
+cout << "Arranged Numbers: ";
+for (int n = 0; n < 5; n++) {
+cout << arr[n] << " ";
+}
+cout << endl;
+​getch(); // Conio.h ka use screen rokne ke liye
+return 0;
+}
