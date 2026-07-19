@@ -1,0 +1,13 @@
+​#include <iostream>
+#include <conio.h>
+​void squareNumber(int &num) {
+num = num * num;
+}
+​int main() {
+int value = 6;
+squareNumber(value);
+std::cout << "Squared value: " << value << std::endl;
+​std::cout << "\nPress any key to exit...";
+getch();
+return 0;
+}
