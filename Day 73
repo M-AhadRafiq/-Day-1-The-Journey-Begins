@@ -1,0 +1,15 @@
+#include <stdio.h>
+void printArray(int arr[], int size) {
+for(int i = 0; i < size; i++) {
+printf("%d ", arr[i]);
+}
+}
+int main() {
+int integers[] = {10, 20, 30};
+char letter = 'A';
+float decimal = 5.5;
+double bigDecimal = 10.99;
+printf("Variables: %c, %.1f, %.2f\n", letter, decimal, bigDecimal);
+printArray(integers, 3);
+return 0;
+}
