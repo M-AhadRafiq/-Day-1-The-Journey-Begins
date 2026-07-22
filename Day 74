@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+int main() {
+int n;
+cout << "Kahan tak number check karne hain? Enter a number: ";
+cin >> n;
+cout << "\n1 se " << n << " tak ke Even aur Odd numbers:\n";
+cout << "-----------------------------------\n";
+// Loop 1 se n tak chalega
+for (int i = 1; i <= n; i++) {
+// Agar number 2 se poora divide ho jaye to Even hai
+if (i % 2 == 0) {
+cout << i << " -> Even Number\n";
+}
+// Nahi to Odd hai
+else {
+cout << i << " -> Odd Number\n";
+}
+}
+return 0;
+}
