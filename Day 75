@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+// Apna banaya hua function
+void checkAge(int age) {
+if (age >= 18) {
+cout << "Aap vote de sakte hain!" << endl;
+} else {
+cout << "Aap abhi vote nahi de sakte." << endl;
+}
+}
+int main() {
+// Variable declaration
+int userAge = 20;
+// Function call using variable
+cout << "User ki age: " << userAge << endl;
+checkAge(userAge);
+return 0;
+}
