@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+#include <map>
+class HeadOffice {
+private:
+std::string name;
+std::map<std::string, std::string> depts;
+public:
+HeadOffice(std::string hqName = "Global HQ") {
+name = hqName;
+depts["FIN"] = "Finance";
+depts["HR"] = "Human Resources";
+depts["LEG"] = "Legal";
+}
+void dispatch(std::string deptCode, std::string task) {
+std::string target;
+if (depts.find(deptCode) != depts.end()) {
+target = depts[deptCode];
+} else {
+target = "Executive Office";
+}
+std::cout << "[" << name << "] Routing task '" << task << "' -> " << target << std::endl;
+}
+};
+int main() {
+HeadOffice hq("Apex Tech HQ");
+hq.dispatch("FIN", "Approve Annual Budget");
+hq.dispatch("HR", "Onboard Regional Directors");
+hq.dispatch("CEO", "Approve Strategic Expansion");
+return 0;
+}
