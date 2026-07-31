@@ -1,0 +1,106 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <numeric>
+
+// Sigmoid activation function: maps any input to a probability between 0 and 1
+double sigmoid(double x) {
+    return 1.0 / (1.0 + std::exp(-x));
+}
+
+// Derivative of the sigmoid function (used during backpropagation)
+double sigmoidDerivative(double x) {
+    double sig = sigmoid(x);
+    return sig * (1.0 - sig);
+}
+
+class ArtificialNeuron {
+private:
+    std::vector<double> weights;
+    double bias;
+    double learningRate;
+
+public:
+    ArtificialNeuron(int numInputs, double lr = 0.1) : learningRate(lr) {
+        // Initialize weights and bias with small random-like values
+        weights.resize(numInputs, 0.5);
+        bias = 0.1;
+    }
+
+    // Forward pass: calculates output prediction
+    double predict(const std::vector<double>& inputs) {
+        double weightedSum = bias;
+        for (size_t i = 0; i < inputs.size(); ++i) {
+            weightedSum += inputs[i] * weights[i];
+        }
+        return sigmoid(weightedSum);
+    }
+
+    // Training step using Gradient Descent
+    void train(const std::vector<std::vector<double>>& trainingInputs, 
+               const std::vector<double>& targets, 
+               int epochs) {
+        
+        for (int epoch = 0; epoch < epochs; ++epoch) {
+            double totalLoss = 0.0;
+
+            for (size_t i = 0; i < trainingInputs.size(); ++i) {
+                // 1. Forward pass
+                double prediction = predict(trainingInputs[i]);
+                
+                // 2. Compute error (Target - Prediction)
+                double error = targets[i] - prediction;
+                totalLoss += error * error; // Mean Squared Error component
+
+                // 3. Compute gradient (Backpropagation)
+                // Derivative of loss with respect to weighted input
+                double gradient = error * prediction * (1.0 - prediction);
+
+                // 4. Update weights and bias
+                for (size_t j = 0; j < weights.size(); ++j) {
+                    weights[j] += learningRate * gradient * trainingInputs[i][j];
+                }
+                bias += learningRate * gradient;
+            }
+
+            // Print progress every 100 epochs
+            if ((epoch + 1) % 100 == 0 || epoch == 0) {
+                std::cout << "Epoch " << (epoch + 1) 
+                          << " | Loss: " << totalLoss / trainingInputs.size() << std::endl;
+            }
+        }
+    }
+};
+
+int main() {
+    std::cout << "=== Simple C++ AI Neuron (AND Gate Logic) ===" << std::endl;
+
+    // Training dataset: AND Logic Gate
+    // Inputs: {X1, X2} -> Output: Y
+    std::vector<std::vector<double>> inputs = {
+        {0.0, 0.0},
+        {0.0, 1.0},
+        {1.0, 0.0},
+        {1.0, 1.0}
+    };
+    std::vector<double> targets = {0.0, 0.0, 0.0, 1.0};
+
+    // Initialize neuron with 2 inputs
+    ArtificialNeuron neuron(2, 0.5);
+
+    // Train neuron for 1000 epochs
+    std::cout << "\nTraining Neuron..." << std::endl;
+    neuron.train(inputs, targets, 1000);
+
+    // Test predictions after training
+    std::cout << "\n=== Testing Model Predictions ===" << std::endl;
+    for (const auto& sample : inputs) {
+        double output = neuron.predict(sample);
+        std::cout << "Input: [" << sample[0] << ", " << sample[1] << "] "
+                  << "-> Predicted Output: " << output 
+                  << " (Rounded: " << (output >= 0.5 ? 1 : 0) << ")" 
+                  << std::endl;
+    }
+
+    return 0;
+}
