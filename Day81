@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+// 1. Variable Macro (Constant value)
+#define PI 3.14159
+#define AGE_LIMIT 18
+
+// 2. Function-like Macro
+#define SQUARE(x) ((x) * (x))
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+
+int main() {
+    // Variable Macro ka use
+    double radius = 5.0;
+    double area = PI * SQUARE(radius); // PI aur SQUARE macro yahan use ho rahe hain
+    
+    cout << "Circle ka Area: " << area << endl;
+
+    // Condition check karne ke liye macro ka use
+    int my_age = 20;
+    if (my_age >= AGE_LIMIT) {
+        cout << "Aap voting ke liye eligible hain." << endl;
+    } else {
+        cout << "Aap voting ke liye eligible nahi hain." << endl;
+    }
+
+    // Function-like Macro (MAX) ka use
+    int x = 10, y = 25;
+    cout << "Dono mein se bada number: " << MAX(x, y) << endl;
+
+    return 0;
+}
