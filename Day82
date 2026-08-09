@@ -1,0 +1,12 @@
+#include <iostream>
+class Box {
+    int width = 10;
+    friend void printWidth(Box b); // Friend function declaration
+};
+void printWidth(Box b) { 
+    std::cout << "Width: " << b.width; // Private data access
+}
+int main() {
+    Box b;
+    printWidth(b);
+}
