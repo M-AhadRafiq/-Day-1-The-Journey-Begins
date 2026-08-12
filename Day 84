@@ -1,0 +1,61 @@
+#include <iostream>
+#include <cstdlib> // Required for malloc, calloc, and free
+
+class Student {
+public:
+    int rollNumber;
+    float marks;
+
+    // Member function to initialize data
+    void setDetails(int r, float m) {
+        rollNumber = r;
+        marks = m;
+    }
+
+    // Member function to display data
+    void display() {
+        std::cout << "Roll Number: " << rollNumber << ", Marks: " << marks << std::endl;
+    }
+};
+
+int main() {
+    int count = 2;
+
+    // 1. Using malloc (Allocates raw memory; contains garbage values initially)
+    std::cout << "--- Using malloc ---" << std::endl;
+    Student* s1 = static_cast<Student*>(malloc(count * sizeof(Student)));
+
+    if (s1 != nullptr) {
+        // Assign values
+        s1[0].setDetails(101, 85.5);
+        s1[1].setDetails(102, 90.0);
+
+        // Display values
+        s1[0].display();
+        s1[1].display();
+
+        // Release allocated memory
+        free(s1);
+        s1 = nullptr;
+    }
+
+    // 2. Using calloc (Allocates memory and zero-initializes all bytes)
+    std::cout << "\n--- Using calloc ---" << std::endl;
+    Student* s2 = static_cast<Student*>(calloc(count, sizeof(Student)));
+
+    if (s2 != nullptr) {
+        // Checking values before setting (will be 0 because of calloc)
+        std::cout << "Default value after calloc: ";
+        s2[0].display(); 
+
+        // Assign values and display
+        s2[0].setDetails(201, 95.0);
+        s2[0].display();
+
+        // Release allocated memory
+        free(s2);
+        s2 = nullptr;
+    }
+
+    return 0;
+}
