@@ -1,0 +1,32 @@
+#include <iostream>
+
+int main() {
+    int day = 3;
+
+    switch (day) {
+        case 1:
+            std::cout << "Monday" << std::endl;
+            break; // Exits the switch statement
+        case 2:
+            std::cout << "Tuesday" << std::endl;
+            break;
+        case 3:
+            std::cout << "Wednesday" << std::endl;
+            break;
+        case 4:
+            std::cout << "Thursday" << std::endl;
+            break;
+        case 5:
+            std::cout << "Friday" << std::endl;
+            break;
+        case 6:
+        case 7: // Falling through multiple cases to handle grouped values
+            std::cout << "Weekend!" << std::endl;
+            break;
+        default: // Executed if no matching case is found
+            std::cout << "Invalid day number." << std::endl;
+            break;
+    }
+
+    return 0;
+}
