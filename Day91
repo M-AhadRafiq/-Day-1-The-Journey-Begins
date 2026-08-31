@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int size;
+
+    cout << "Array ka size likhein: ";
+    cin >> size;
+
+    // Dynamic memory allocate karna (Heap space me)
+    int* arr = new int[size];
+
+    // Array me elements daalna
+    cout << size << " numbers enter karein:\n";
+    for (int i = 0; i < size; i++) {
+        cin >> arr[i];
+    }
+
+    // Array ke elements ko print karna
+    cout << "\nAapne ye numbers enter kiye hain:\n";
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    // Memory free karna (Memory leak se bachne ke liye)
+    delete[] arr;
+    arr = nullptr; // Pointer ko null karna taake dangling pointer na rahe
+
+    return 0;
+}
