@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char op;
+    double num1, num2;
+
+    cout << "Operator enter karein (+, -, *, /): ";
+    cin >> op;
+
+    cout << "Do numbers enter karein: ";
+    cin >> num1 >> num2;
+
+    switch (op) {
+        case '+':
+            cout << "Result: " << num1 + num2 << endl;
+            break;
+        case '-':
+            cout << "Result: " << num1 - num2 << endl;
+            break;
+        case '*':
+            cout << "Result: " << num1 * num2 << endl;
+            break;
+        case '/':
+            if (num2 != 0)
+                cout << "Result: " << num1 / num2 << endl;
+            else
+                cout << "Error: Zero se divide nahi ho sakta!" << endl;
+            break;
+        default:
+            cout << "Ghalat operator!" << endl;
+    }
+
+    return 0;
+}
