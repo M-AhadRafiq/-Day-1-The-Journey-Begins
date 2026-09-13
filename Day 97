@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+#include <numeric>
+
+int main() {
+    std::vector<int> numbers = {10, 20, 30, 40, 50};
+
+    // Calculate sum using standard library
+    int sum = std::accumulate(numbers.begin(), numbers.end(), 0);
+    double average = static_cast<double>(sum) / numbers.size();
+
+    std::cout << "Numbers: ";
+    for (int n : numbers) {
+        std::cout << n << " ";
+    }
+    std::cout << "\nSum: " << sum << "\n";
+    std::cout << "Average: " << average << "\n";
+
+    return 0;
+}
