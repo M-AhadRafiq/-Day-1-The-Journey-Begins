@@ -1,0 +1,13 @@
+#include <iostream>
+
+template <typename... Args>
+constexpr auto tricky(int count, Args... args) {
+    int n = (count + 7) / 8;
+    switch (count % 8) {
+        case 0: do { ([&]{ (args *= 2); }(), ...);
+        case 7:      ([&]{ (args += 1); }(), ...);
+        case 6:      ([&]{ (args ^= 3); }(), ...);
+        } while (--n > 0);
+    }
+    return (... + args);
+}
