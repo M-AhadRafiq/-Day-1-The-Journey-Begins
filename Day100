@@ -1,0 +1,13 @@
+#include <iostream>
+
+template <size_t N, size_t... Is>
+constexpr bool is_prime_impl(std::index_sequence<Is...>) {
+    return ((N % (Is + 2) != 0) && ...);
+}
+template <size_t N>
+constexpr bool is_prime = (N > 1) && is_prime_impl<N>(std::make_index_sequence<N > 2 ? N - 2 : 0>{});
+
+int main() {
+    static_assert(is_prime<97>, "Compile-time check: 97 must be prime");
+    std::cout << "97 is prime: " << std::boolalpha << is_prime<97> << '\n';
+}
